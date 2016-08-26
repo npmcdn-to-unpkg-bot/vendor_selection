@@ -1,1 +1,1 @@
-var vendors=document.querySelector(".vendor"),products=document.querySelector(".products"),iso=new Isotope(products,{itemSelector:".product",layoutMode:"fitRows"});
+$(function(){$products=$(".products"),$products.isotope({layoutMode:"fitRows"});var t=function(){var t=[];return function(o){var i=t.indexOf("."+o);return i>-1?t.splice(i,1):t.push("."+o),t.join(", ")}}();$(".vendor").click(function(){$products.isotope({filter:t($(this).attr("data-vendor"))}),$(this).toggleClass("active")})});

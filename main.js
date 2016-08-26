@@ -1,16 +1,33 @@
 
-var vendors = document.querySelector('.vendor');
-var products = document.querySelector('.products');
-var iso = new Isotope(products, {
-  itemSelector: '.product',
-  layoutMode: 'fitRows'
-});
-/*
-vendors = Array.from(vendors);
+$(function() {
+	$products = $('.products');
 
-vendors.forEach(function(vendor) {
-  vendor.addEventListener('click', function() {
-  	alert();
-  });
+	$products.isotope({
+    	layoutMode: 'fitRows'
+	})
+
+	var getCurrent = (function() {
+      var active = [];
+       
+      return function(vendor) {
+        var i = active.indexOf('.' + vendor);
+
+        if (i > -1) {
+          active.splice(i, 1);
+        } else {
+          active.push('.' + vendor)
+        }
+
+        return active.join(', ');
+      }
+	})();
+
+	$('.vendor').click(function() {
+		$products.isotope({
+			filter: getCurrent( $(this).attr('data-vendor') )
+		});
+
+		$(this).toggleClass('active');
+	});
 });
-*/
+

@@ -1,15 +1,10 @@
 $bgNum: 40;
 $bg: rgba($bgNum, $bgNum, $bgNum, 1.0);
-$clr: white;
+$activeBg: silver;
+$activeColor: #010101;
+$activeShadow: #555;
+$clr: #efefef;
 $maxWidth: 1000;
-$productWidth: $maxWidth / 8;
-$productHeight: 100px;
-
-@function getPercent($context, $target) {
-	@return unquote(( ($target * 100) / $context ) + '%'); 
-}
-
-$productSide: getPercent($maxWidth, $productWidth);
 
 * {
 	padding: 0;
@@ -21,10 +16,20 @@ body {
 	color: $clr;
 }
 
+.products {
+	left: 5%;
+}
+
+.product {
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
 .wrap {
 	max-width: $maxWidth + 'px';
 	width: 100%;
-	margin: 50px auto;
+	margin: 30px auto;
+	padding: 10px 30px;
 }
 
 nav {
@@ -33,22 +38,6 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-}
-/*
-.product {
-	float: left;
-	width: $productSide;
-	height: $productSide;
-	border: 1px solid $clr;
-	margin-left: getPercent($maxWidth, 10);
-	margin-top: 20px;
-	padding: getPercent($maxWidth, 10);
-	text-align: center;
-}
-*/
-.product img {
-  max-width: 100%;
-  height: auto;
 }
 
 a.vendor {
@@ -59,50 +48,19 @@ a.vendor {
 	border: 3px solid white;
 	display: inline-block;
 	width: 20%;
+	min-width: 125px;
 	text-align: center;
 	color: $clr;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
-@media screen and (max-width: 900px) {
-
-    $productWidth: $maxWidth / 6;
-    $productSide: getPercent($maxWidth, $productWidth);
-    
-    .product {
-    	width: $productSide;
-    	height: $productSide; 
-    }
-
-    a.vendor {
-		width: 40%;
-	}
+a.vendor:hover {
+	color: invert($clr);
+	background-color: invert($bg);
 }
 
-@media screen and (max-width: 700px) {
-
-    $productWidth: $maxWidth / 4;
-    $productSide: getPercent($maxWidth, $productWidth);
-    
-    .product {
-    	width: $productSide;
-    	height: $productSide; 
-    }
-
-    a.vendor {
-		width: 100%;
-	}
-}
-
-@media screen and (max-width: 500px) {
-
-    $productWidth: $maxWidth / 2;
-    $productSide: getPercent($maxWidth, $productWidth);
-    
-    .product {
-    	width: 100%;
-    	margin-left: auto;
-    	margin-right: auto;
-    	height: $productSide; 
-    }
+a.vendor.active {
+	background-color: $activeBg;
+	color: $activeColor;
+	box-shadow: inset 1px 1px 2px $activeShadow;
 }
