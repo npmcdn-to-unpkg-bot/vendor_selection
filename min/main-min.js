@@ -1,1 +1,1 @@
-window.addEventListener("resize",function(){console.log(window.innerWidth)});
+var vendors=document.querySelector(".vendor"),products=document.querySelector(".products"),iso=new Isotope(products,{itemSelector:".product",layoutMode:"fitRows"});

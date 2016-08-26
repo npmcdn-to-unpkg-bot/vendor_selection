@@ -11,23 +11,25 @@ body {
   width: 100%;
   margin: 50px auto; }
 
-.products, nav {
+nav {
   padding: 10px 20px;
   overflow: hidden;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; }
 
+/*
 .product {
-  float: left;
-  width: 12.5%;
-  height: 12.5%;
-  border: 1px solid white;
-  margin-left: 1%;
-  margin-top: 20px;
-  padding: 1%;
-  text-align: center; }
-
+	float: left;
+	width: $productSide;
+	height: $productSide;
+	border: 1px solid $clr;
+	margin-left: getPercent($maxWidth, 10);
+	margin-top: 20px;
+	padding: getPercent($maxWidth, 10);
+	text-align: center;
+}
+*/
 .product img {
   max-width: 100%;
   height: auto; }
